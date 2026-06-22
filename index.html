@@ -31,27 +31,27 @@
                 </p>
             </div>
 
-            <!-- Progress -->
-            <div class="mb-6">
+            <!--Song Progress -->
+            <div class="mb-6 rounded-lg">
                 <div class="flex justify-between text-sm text-gray-500 mb-2">
                     <span id="currentTime">0:00</span>
                     <span id="duration">0:00</span>
                 </div>
 
-                <input type="range" id="progress" value="0" class="w-full" />
+                <input type="range" id="progress" min="0" max="100" value="0" class="w-full" />
             </div>
 
             <!-- Controls -->
             <div class="flex justify-center items-center gap-6 mb-6">
-                <button id="prev" class="text-2xl">
+                <button id="prev" class="text-2xl hover:bg-gray-200 rounded-full p-1 transition">
                     ⏮️
                 </button>
 
-                <button id="play" class="bg-indigo-600 text-white w-14 h-14 rounded-full text-xl">
+                <button id="play" class="bg-indigo-600 text-white w-14 h-14 rounded-full text-xl transition hover:bg-indigo-700">
                     ▶️
                 </button>
 
-                <button id="next" class="text-2xl">
+                <button id="next" class="text-2xl hover:bg-gray-200 rounded-full p-1 transition">
                     ⏭️
                 </button>
             </div>
@@ -69,8 +69,14 @@
                     Playlist
                 </h3>
 
-                <div id="playlist" class="space-y-2">
+                <div id="playlist" class="space-y-2 my-2 bg-gray-200 p-2 rounded-lg">
                     <!-- Render songs here -->
+
+                   <div>Ring Ring - Jax Jones, Mabel, Rich The Kid</div>
+                   <div>Ring Ring - Jax Jones, Mabel, Rich The Kid</div>
+                   <div>Ring Ring - Jax Jones, Mabel, Rich The Kid</div>
+                  
+                    
                 </div>
             </div>
 
