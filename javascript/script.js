@@ -23,9 +23,9 @@ const playlistEl = document.getElementById('playlist');
 // songs array with title, artist, source, and duration
 const songs = [
   {
-    title: "baddo by Olamide",
-    artist: "Artist One",
-    src: "C:\\Olamide-Eni-Duro-OldNaijacom.mp3",
+    title: "Eni-Duro",
+    artist: "Olamide",
+    src: "Olamide-Eni-Duro-OldNaijacom.mp3",
     duration: "03:12"
   },
   {
