@@ -1,0 +1,1 @@
+alert('Hello! Welcome to CrixSoft Solution Web Music Player!');
