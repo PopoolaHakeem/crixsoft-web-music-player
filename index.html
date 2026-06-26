@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Music Player</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 
 </head>
 
@@ -22,12 +24,12 @@
 
             <!-- Song Info -->
             <div class="text-center mb-6">
-                <h2 id="title" class="text-2xl font-bold">
-                    Song Title
+                <h2 id="title" class=" text-2xl font-bold">
+                    <!-- Song Title -->
                 </h2>
 
-                <p id="artist" class="text-gray-500">
-                    Artist Name
+                <p id="artist" class=" text-gray-500">
+                    <!-- Artist Name -->
                 </p>
             </div>
 
@@ -62,6 +64,9 @@
 
                 <input type="range" id="volume" min="0" max="1" step="0.1" value="0.6" class="w-full" />
             </div>
+
+            <!-- audio element -->
+            <audio id="audio"></audio>
 
             <!-- Playlist -->
             <div>

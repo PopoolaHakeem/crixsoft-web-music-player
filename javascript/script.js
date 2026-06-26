@@ -14,6 +14,7 @@ const progressBar = document.getElementById('progress');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
+const audio = document.getElementById("audio");
 
 // Volume slider & playlist element
 const volumeSlider = document.getElementById('volume');
@@ -23,22 +24,22 @@ const playlistEl = document.getElementById('playlist');
 // songs array with title, artist, source, and duration
 const songs = [
   {
+    title: "Song Three",
+    artist: "Artist Three",
+    src: "/songs/song3.mp3",
+    duration: "04:10"
+  },
+  {
     title: "Eni-Duro",
     artist: "Olamide",
-    src: "Olamide-Eni-Duro-OldNaijacom.mp3",
+    src: "/songs/Olamide-Eni-Duro-OldNaijacom.mp3",
     duration: "03:12"
   },
   {
     title: "Song Two",
     artist: "Artist Two",
-    src: "./songs/song2.mp3",
+    src: "/songs/song2.mp3",
     duration: "02:45"
-  },
-  {
-    title: "Song Three",
-    artist: "Artist Three",
-    src: "./songs/song3.mp3",
-    duration: "04:10"
   }
 ];
 
@@ -55,6 +56,9 @@ function loadSong(index) {
   artist.textContent = song.artist;
 
   audio.src = song.src;
+
+  
+
 }
 
 // play song 
@@ -133,3 +137,58 @@ audio.addEventListener("timeupdate", () => {
   duration.textContent =
     formatTime(audio.duration);
 });
+
+// seek through song
+progress.addEventListener("input", () => {
+  const seekTime =
+    (progress.value / 100) * audio.duration;
+
+  audio.currentTime = seekTime;
+});
+
+// format time in mm:ss
+function formatTime(time) {
+  if (isNaN(time)) return "0:00";
+
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+
+  return `${minutes}:${seconds
+    .toString()
+    .padStart(2, "0")}`;
+}
+
+// display playlist
+songs.forEach((song, index) => {
+  const item = document.createElement("div");
+
+  item.innerHTML = `
+    <div class="flex justify-between p-3 cursor-pointer border-b">
+      <div>
+        <p>${song.title}</p>
+        <p class="text-sm text-gray-500">
+          ${song.artist}
+        </p>
+      </div>
+
+      <span>${song.duration}</span>
+    </div>
+  `;
+
+  item.addEventListener("click", () => {
+    currentSongIndex = index;
+    loadSong(index);
+    playSong();
+  });
+
+  playlist.appendChild(item);
+});
+
+// automatically play next song when current song ends
+audio.addEventListener("ended", () => {
+  nextSong();
+});
+
+// initial song load
+loadSong(currentSongIndex);
+audio.volume = volume.value;
