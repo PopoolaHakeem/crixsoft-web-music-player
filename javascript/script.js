@@ -28,8 +28,8 @@ const songs = [
     graphic: "/images/Oh-No.jpg",
     title: "Oh No",
     artist: "Oberz ft Fola",
-    src: "/songs/Oberz - Oh No ft FOLA.mp3",
-    duration: "04:10"
+    src: "/songs/Oberz - Oh No ft. FOLA.mp3",
+    duration: "02:41"
   },
   {
     graphic: "/images/Rapsodi.jpg",
@@ -52,29 +52,32 @@ const songs = [
     duration: "03:13"
   },
   {
-    graphic: "/images/New-Religion.jpg",
-    title: "Song 5",
-    artist: "Artist Two",
-    src: "/songs/song2.mp3",
-    duration: "02:45"
+    graphic: "/images/olamide-99.jpg",
+    title: "99",
+    artist: "Olamide, Seyi Vibez, Asake, Young John, Daecol",
+    src: "/songs/Olamide, Seyi Vibez, Asake, Young John - 99 ft. Daecol.mp3",
+    duration: "04:09"
   },
   {
-    title: "Song 6",
-    artist: "Artist Two",
-    src: "/songs/song2.mp3",
-    duration: "02:45"
+    graphic: "/images/Bust-Down.jpg",
+    title: "Bust Down",
+    artist: "Zlatan ft Asake - Bust Down",
+    src: "/songs/Zlatan ft Asake - Bust Down.mp3",
+    duration: "03:16"
   },
   {
-    title: "Song 7",
-    artist: "Artist Two",
-    src: "/songs/song2.mp3",
-    duration: "02:45"
+    graphic: "/images/Gimme-Your-Love.jpg",
+    title: "Gimme Your Love",
+    artist: "Zlatan ft Olamide - Gimme Your Love",
+    src: "/songs/Zlatan ft Olamide - Gimme Your Love.mp3",
+    duration: "02:52"
   },
   {
-    title: "Song 8",
-    artist: "Artist Two",
-    src: "/songs/song2.mp3",
-    duration: "02:45"
+    graphic: "/images/images.jpg",
+    title: "Loading",
+    artist: "olamide, Asake - Loading",
+    src: "/songs/Olamide - Loading ft. Bad Boy Timz - Olamide.mp3",
+    duration: "03:45"
   },
   {
     title: "Song 9",
@@ -158,6 +161,16 @@ prevBtn.addEventListener("click", prevSong);
 volumeSlider.addEventListener("input", (e) => {
     audio.volume = e.target.value;
 }   );
+
+// Keydown volume control
+// volumeSlider.addEventListener("keydown", (e) => {
+//   if (e.key === "f3") {
+//     audio.volume = 20;
+//   }
+//   if (e.key === "f2") {
+//     audio.volume = 0;
+//   }
+// });
 
 // update progress bar
 audio.addEventListener("timeupdate", () => {
