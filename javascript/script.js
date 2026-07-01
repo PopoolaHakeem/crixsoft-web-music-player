@@ -80,11 +80,11 @@ const songs = [{
     duration: "03:45"
   },
   {
-    graphic: "./images/song9.jpg",
-    title: "Song 9",
-    artist: "Artist Two",
-    src: "./songs/song2.mp3",
-    duration: "02:45"
+    graphic: "./images/Calm-Down.jpg",
+    title: "Calm Down",
+    artist: "Rema ft Selena Gomez",
+    src: "./songs/Rema, Selena Gomez - Calm Down.mp3",
+    duration: "03:59"
   }
 ];
 
