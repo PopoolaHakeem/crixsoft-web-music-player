@@ -80,6 +80,7 @@ const songs = [{
     duration: "03:45"
   },
   {
+    graphic: "./images/song9.jpg",
     title: "Song 9",
     artist: "Artist Two",
     src: "./songs/song2.mp3",
@@ -167,7 +168,7 @@ function prevSong() {
 
 prevBtn.addEventListener("click", prevSong);
 
-// volume control
+// VOLUME CONTROL 
 volumeSlider.addEventListener("input", (e) => {
   audio.volume = e.target.value;
 });
@@ -194,7 +195,7 @@ audio.addEventListener("timeupdate", () => {
     formatTime(audio.duration);
 });
 
-// seek through song
+// SEEK THROUGH SONG
 progress.addEventListener("input", () => {
   const seekTime =
     (progress.value / 100) * audio.duration;
@@ -202,7 +203,7 @@ progress.addEventListener("input", () => {
   audio.currentTime = seekTime;
 });
 
-// format time in mm:ss
+// FORMAT SONG IN MM:SS
 function formatTime(time) {
   if (isNaN(time)) return "0:00";
 
@@ -214,7 +215,7 @@ function formatTime(time) {
     .padStart(2, "0")}`;
 }
 
-// display playlist
+// DISPLAY PLAYLIST
 songs.forEach((song, index) => {
   const item = document.createElement("div");
 
@@ -240,11 +241,11 @@ songs.forEach((song, index) => {
   playlistEl.appendChild(item);
 });
 
-// automatically play next song when current song ends
+// AUTOMATICALLY PLAY NEXT SONG WHEN CURRENT ONE ENDS
 audio.addEventListener("ended", () => {
   nextSong();
 });
 
-// initial song load
+// INITIALIZE FIRST SONG AND SET VOLUME
 loadSong(currentSongIndex);
 audio.volume = volumeSlider.value;
