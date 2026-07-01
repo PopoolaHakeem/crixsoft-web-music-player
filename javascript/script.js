@@ -1,98 +1,98 @@
 // alert('Hello! Welcome to CrixSoft Solution Web Music Player!'); 
 
 
-// Title & artist elements
+// TITLE, ARTIST, GRAPHIC CARD ELEMENTS
 const title = document.getElementById('title');
 const artist = document.getElementById('artist');
 const graphicCard = document.getElementById('graphicCard');
 
-// Progress bar elements
-const currentTime = document.getElementById('current-time');
+// PROGRESS BAR ELEMENTS
+const currentTime = document.getElementById('currentTime');
 const duration = document.getElementById('duration');
-const progressBar = document.getElementById('progress');
+const progress = document.getElementById('progress');
 
-// Playback controls
+// PLAYBACK CONTROL ELEMENTS
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 const audio = document.getElementById("audio");
 
-// Volume slider & playlist element
+// VOLUME SLIDER AND PLAYLIST ELEMENTS
 const volumeSlider = document.getElementById('volume');
 const playlistEl = document.getElementById('playlist');
 
 
-// songs array with title, artist, source, and duration
-const songs = [
-  {
-    graphic: "/images/Oh-No.jpg",
+// SONGS ARRAY WITH TITLE, ARTIST, SOURCE AND DURATION
+const songs = [{
+    graphic: "./images/Oh-No.jpg",
     title: "Oh No",
     artist: "Oberz ft Fola",
-    src: "/songs/Oberz - Oh No ft. FOLA.mp3",
+    src: "./songs/Oberz - Oh No ft. FOLA.mp3",
     duration: "02:41"
   },
   {
-    graphic: "/images/Rapsodi.jpg",
+    graphic: "./images/Rapsodi.jpg",
     title: "Eni-Duro",
     artist: "Olamide",
-    src: "/songs/Olamide-Eni-Duro-OldNaijacom.mp3",
+    src: "./songs/Olamide-Eni-Duro-OldNaijacom.mp3",
     duration: "03:12"
   },
-  {graphic: "/images/Metaverse.jpg",
+  {
+    graphic: "./images/Metaverse.jpg",
     title: "Metaverse",
     artist: "Olamide",
-    src: "/songs/Olamide - Metaverse.mp3",
+    src: "./songs/Olamide - Metaverse.mp3",
     duration: "02:59"
   },
   {
-    graphic: "/images/New-Religion.jpg",
+    graphic: "./images/New-Religion.jpg",
     title: "New Religion",
     artist: "Olamide, Asake",
-    src: "/songs/Olamide, Asake - New Religion.mp3",
+    src: "./songs/Olamide, Asake - New Religion.mp3",
     duration: "03:13"
   },
   {
-    graphic: "/images/olamide-99.jpg",
+    graphic: "./images/olamide-99.jpg",
     title: "99",
     artist: "Olamide, Seyi Vibez, Asake, Young John, Daecol",
-    src: "/songs/Olamide, Seyi Vibez, Asake, Young John - 99 ft. Daecol.mp3",
+    src: "./songs/Olamide, Seyi Vibez, Asake, Young John - 99 ft. Daecol.mp3",
     duration: "04:09"
   },
   {
-    graphic: "/images/Bust-Down.jpg",
+    graphic: "./images/Bust-Down.jpg",
     title: "Bust Down",
     artist: "Zlatan ft Asake - Bust Down",
-    src: "/songs/Zlatan ft Asake - Bust Down.mp3",
+    src: "./songs/Zlatan ft Asake - Bust Down.mp3",
     duration: "03:16"
   },
   {
-    graphic: "/images/Gimme-Your-Love.jpg",
+    graphic: "./images/Gimme-Your-Love.jpg",
     title: "Gimme Your Love",
     artist: "Zlatan ft Olamide - Gimme Your Love",
-    src: "/songs/Zlatan ft Olamide - Gimme Your Love.mp3",
+    src: "./songs/Zlatan ft Olamide - Gimme Your Love.mp3",
     duration: "02:52"
   },
   {
-    graphic: "/images/images.jpg",
+    graphic: "./images/images.jpg",
     title: "Loading",
     artist: "olamide, Asake - Loading",
-    src: "/songs/Olamide - Loading ft. Bad Boy Timz - Olamide.mp3",
+    src: "./songs/Olamide - Loading ft. Bad Boy Timz - Olamide.mp3",
     duration: "03:45"
   },
   {
     title: "Song 9",
     artist: "Artist Two",
-    src: "/songs/song2.mp3",
+    src: "./songs/song2.mp3",
     duration: "02:45"
   }
 ];
 
-//  Define your songs array
+//  DEFINING SONG INDEX AND PLAYBACK STATE
 let currentSongIndex = 0;
 let isPlaying = false;
 // const audio = new Audio();
 
-// load song 
+// LOAD SONG FUNCTION
 function loadSong(index) {
   const song = songs[index];
 
@@ -102,25 +102,33 @@ function loadSong(index) {
   audio.src = song.src;
 
   graphicCard.innerHTML = `<img src="${song.graphic}" alt="${song.title}" class="w-full h-full object-cover rounded-xl" />`;
-  
+
 
 }
 
-// play song 
+// PLAY SONG FUNCTION 
 function playSong() {
   audio.play();
   isPlaying = true;
   playBtn.textContent = "⏸️";
 }
 
-// pause song
+// PAUSE SONG FUNCTION
 function pauseSong() {
   audio.pause();
   isPlaying = false;
   playBtn.textContent = "▶️";
 }
 
-// play/pause button event listener
+// playBtn.addEventListener("keydown", (e) => {
+//   if (e.key === " ") {
+//     pauseSong();
+//   } else if (e.key === " ") {
+//     playSong();
+//   }
+// });
+
+// PLAY/PAUSE BUTTON EVENT LISTNER
 playBtn.addEventListener("click", () => {
   if (isPlaying) {
     pauseSong();
@@ -129,7 +137,7 @@ playBtn.addEventListener("click", () => {
   }
 });
 
-// next song
+// NEXT SONG FUNCTION
 function nextSong() {
   currentSongIndex++;
 
@@ -141,45 +149,31 @@ function nextSong() {
   playSong();
 }
 
+
+
 nextBtn.addEventListener("click", nextSong);
 
 
-// previous song
+// PREVIOUS SONG FUNCTION
 function prevSong() {
-    currentSongIndex--;
+  currentSongIndex--;
 
-    if (currentSongIndex < 0) {
-        currentSongIndex = songs.length - 1;
-    }
-    loadSong(currentSongIndex);
-    playSong();
+  if (currentSongIndex < 0) {
+    currentSongIndex = songs.length - 1;
+  }
+  loadSong(currentSongIndex);
+  playSong();
 }
 
 prevBtn.addEventListener("click", prevSong);
 
 // volume control
 volumeSlider.addEventListener("input", (e) => {
-    audio.volume = e.target.value;
-}   );
-
-// Keydown volume control
-// volumeSlider.addEventListener("keydown", (e) => {
-//   if (e.key === "f3") {
-//     audio.volume = 20;
-//   }
-//   if (e.key === "f2") {
-//     audio.volume = 0;
-//   }
-// });
-
-// update progress bar
-audio.addEventListener("timeupdate", () => {
-    const current = audio.currentTime;
-    const total = audio.duration;
-    const progress = (current / total) * 100;
-    progressBar.style.width = `${progress}%`;
+  audio.volume = e.target.value;
 });
 
+
+// UPDATE PROGRESS BAR
 audio.addEventListener("timeupdate", () => {
   const progressPercent =
     (audio.currentTime / audio.duration) * 100;
@@ -188,6 +182,13 @@ audio.addEventListener("timeupdate", () => {
 
   currentTime.textContent =
     formatTime(audio.currentTime);
+
+  duration.textContent =
+    formatTime(audio.duration);
+
+  audio.addEventListener("loadedmetadata", () => {
+    duration.textContent = formatTime(audio.duration);
+  });
 
   duration.textContent =
     formatTime(audio.duration);
@@ -236,7 +237,7 @@ songs.forEach((song, index) => {
     playSong();
   });
 
-  playlist.appendChild(item);
+  playlistEl.appendChild(item);
 });
 
 // automatically play next song when current song ends
@@ -246,4 +247,4 @@ audio.addEventListener("ended", () => {
 
 // initial song load
 loadSong(currentSongIndex);
-audio.volume = volume.value;
+audio.volume = volumeSlider.value;
