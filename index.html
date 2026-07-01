@@ -9,29 +9,30 @@
 
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
-    
+
 
 </head>
 
 <body>
 
-    <body class="bg-gray-700 min-h-screen flex items-center justify-center p-6">
+    <body class="bg-gray-700 min-h-screen flex flex-col items-center justify-center p-6">
 
-        <div class="bg-gray-400 w-full max-w-sm md:max-w-lg lg:max-w-xl bg-white rounded-2xl shadow-lg p-6">
+        <div class="bg-gradient-to-tr from-gray-600 to-black w-full max-w-sm md:max-w-lg lg:max-w-xl bg-white rounded-2xl shadow-lg p-6">
 
 
             <!-- GRAPHIC CARD -->
-            <div id="graphicCard" class="w-48 h-48 mx-auto rounded-xl bg-gray-300 mb-6 shadow-md shadow-[#8B5CF6]-400 overflow-hidden">
+            <div id="graphicCard"
+                class="w-48 h-48 mx-auto rounded-xl bg-gray-300 mb-6 shadow-md shadow-[#8B5CF6]-400 overflow-hidden">
                 <!-- <img src="/images/images.jpg" alt="" class="w-full h-full object-cover rounded-xl" /> -->
             </div>
 
             <!-- Song Info -->
             <div class="text-center mb-6">
-                <h2 id="title" class=" text-2xl font-bold">
+                <h2 id="title" class="text-gray-100 text-2xl font-bold">
                     <!-- Song Title -->
                 </h2>
 
-                <p id="artist" class=" text-gray-500">
+                <p id="artist" class="text-gray-400">
                     <!-- Artist Name -->
                 </p>
             </div>
@@ -78,7 +79,8 @@
                     Playlist
                 </h3>
 
-                <div id="playlist" class="space-y-2 my-2 p-2 rounded-lg overflow-auto shadow-md" style="max-height: 200px; border: 1px solid #e5e7eb; appearance: none; scrollbar-width: thin; scrollbar-color: #9ca3af #686b72;">
+                <div id="playlist" class="space-y-2 my-2 p-2 rounded-lg overflow-auto shadow-md" style="max-height: 200px; border: 1px solid #e5e7eb; appearance: none;
+                 scrollbar-width: thin; scrollbar-color: #9ca3af #686b72;">
                     <!-- Render songs here -->
 
                     <!-- <div>Ring Ring - Jax Jones, Mabel, Rich The Kid</div> -->
@@ -86,9 +88,12 @@
                 </div>
             </div>
 
-
+            
         </div>
-
+        
+        <p class="text-gray-400 text-sm mt-4 mb-2">
+            Additional info can be displayed here
+        </p>
 
         <!-- JavaScript -->
         <script src="/javascript/script.js"></script>

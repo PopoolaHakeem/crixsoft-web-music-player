@@ -222,13 +222,17 @@ songs.forEach((song, index) => {
   item.innerHTML = `
     <div class="flex justify-between p-3 cursor-pointer border-b">
       <div>
-        <p>${song.title}</p>
-        <p class="text-sm text-gray-500">
+        <p class="font-semibold text-gray-100">
+          ${song.title}
+        </p>
+        <p class="text-sm text-gray-400">
           ${song.artist}
         </p>
       </div>
 
-      <span>${song.duration}</span>
+      <span class="text-sm text-gray-400">
+        ${song.duration}
+      </span>
     </div>
   `;
 
