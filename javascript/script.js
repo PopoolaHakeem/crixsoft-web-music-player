@@ -38,7 +38,7 @@ const songs = [{
     duration: "03:12"
   },
   {
-    graphic: "./images/Metaverse.jpg",
+    graphic: "./images/metaverse.jpg",
     title: "Metaverse",
     artist: "Olamide",
     src: "./songs/Olamide - Metaverse.mp3",
