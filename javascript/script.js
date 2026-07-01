@@ -1,9 +1,10 @@
-// alert('Hello! Welcome to CrixSoft Solution Web Music Player!');
+// alert('Hello! Welcome to CrixSoft Solution Web Music Player!'); 
 
 
 // Title & artist elements
 const title = document.getElementById('title');
 const artist = document.getElementById('artist');
+const graphicCard = document.getElementById('graphicCard');
 
 // Progress bar elements
 const currentTime = document.getElementById('current-time');
@@ -24,19 +25,59 @@ const playlistEl = document.getElementById('playlist');
 // songs array with title, artist, source, and duration
 const songs = [
   {
-    title: "Song Three",
-    artist: "Artist Three",
-    src: "/songs/song3.mp3",
+    graphic: "/images/Oh-No.jpg",
+    title: "Oh No",
+    artist: "Oberz ft Fola",
+    src: "/songs/Oberz - Oh No ft FOLA.mp3",
     duration: "04:10"
   },
   {
+    graphic: "/images/Rapsodi.jpg",
     title: "Eni-Duro",
     artist: "Olamide",
     src: "/songs/Olamide-Eni-Duro-OldNaijacom.mp3",
     duration: "03:12"
   },
+  {graphic: "/images/Metaverse.jpg",
+    title: "Metaverse",
+    artist: "Olamide",
+    src: "/songs/Olamide - Metaverse.mp3",
+    duration: "02:59"
+  },
   {
-    title: "Song Two",
+    graphic: "/images/New-Religion.jpg",
+    title: "New Religion",
+    artist: "Olamide, Asake",
+    src: "/songs/Olamide, Asake - New Religion.mp3",
+    duration: "03:13"
+  },
+  {
+    graphic: "/images/New-Religion.jpg",
+    title: "Song 5",
+    artist: "Artist Two",
+    src: "/songs/song2.mp3",
+    duration: "02:45"
+  },
+  {
+    title: "Song 6",
+    artist: "Artist Two",
+    src: "/songs/song2.mp3",
+    duration: "02:45"
+  },
+  {
+    title: "Song 7",
+    artist: "Artist Two",
+    src: "/songs/song2.mp3",
+    duration: "02:45"
+  },
+  {
+    title: "Song 8",
+    artist: "Artist Two",
+    src: "/songs/song2.mp3",
+    duration: "02:45"
+  },
+  {
+    title: "Song 9",
     artist: "Artist Two",
     src: "/songs/song2.mp3",
     duration: "02:45"
@@ -54,9 +95,10 @@ function loadSong(index) {
 
   title.textContent = song.title;
   artist.textContent = song.artist;
-
+  graphicCard.style.backgroundImage = `url(${song.graphic})`;
   audio.src = song.src;
 
+  graphicCard.innerHTML = `<img src="${song.graphic}" alt="${song.title}" class="w-full h-full object-cover rounded-xl" />`;
   
 
 }

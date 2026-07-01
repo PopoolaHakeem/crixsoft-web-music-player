@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
+
     <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    
 
 </head>
 
@@ -17,9 +19,11 @@
 
         <div class="w-full max-w-sm md:max-w-lg lg:max-w-xl bg-white rounded-2xl shadow-lg p-6">
 
+            <input type="text" id="search" placeholder="Search songs..." class="border p-2 rounded w-full mb-4" />
+
             <!-- Cover -->
-            <div class="w-48 h-48 mx-auto rounded-xl bg-gray-300 mb-6">
-                <img src="/images/images.jpg" alt="" class="w-full h-full object-cover rounded-xl" />
+            <div id="graphicCard" class="w-48 h-48 mx-auto rounded-xl bg-gray-300 mb-6">
+                <!-- <img src="/images/images.jpg" alt="" class="w-full h-full object-cover rounded-xl" /> -->
             </div>
 
             <!-- Song Info -->
@@ -49,7 +53,8 @@
                     ⏮️
                 </button>
 
-                <button id="play" class="bg-indigo-600 text-white w-14 h-14 rounded-full text-xl transition hover:bg-indigo-700">
+                <button id="play"
+                    class="bg-indigo-600 text-white w-14 h-14 rounded-full text-xl transition hover:bg-indigo-700">
                     ▶️
                 </button>
 
@@ -74,11 +79,11 @@
                     Playlist
                 </h3>
 
-                <div id="playlist" class="space-y-2 my-2 p-2 rounded-lg">
+                <div id="playlist" class="space-y-2 my-2 p-2 rounded-lg overflow-auto shadow-md" style="max-height: 200px; border: 1px solid #e5e7eb;">
                     <!-- Render songs here -->
 
-                   <!-- <div>Ring Ring - Jax Jones, Mabel, Rich The Kid</div> -->
-                  
+                    <!-- <div>Ring Ring - Jax Jones, Mabel, Rich The Kid</div> -->
+
                 </div>
             </div>
 
