@@ -220,7 +220,7 @@ songs.forEach((song, index) => {
   const item = document.createElement("div");
 
   item.innerHTML = `
-    <div class="flex justify-between p-3 cursor-pointer border-b">
+    <div class="flex justify-between p-3 cursor-pointer border-b border-gray-700 hover:bg-gray-800 rounded-lg transition duration-400">
       <div>
         <p class="font-semibold text-gray-100">
           ${song.title}
