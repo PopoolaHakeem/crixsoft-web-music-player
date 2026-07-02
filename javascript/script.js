@@ -99,12 +99,17 @@ function loadSong(index) {
 
   title.textContent = song.title;
   artist.textContent = song.artist;
-  graphicCard.style.backgroundImage = `url(${song.graphic})`;
+  graphicCard.innerHTML = `
+    <img src="${song.graphic}" alt="${song.title}"
+    class="w-full h-full object-cover rounded-xl" />
+  `;
+
   audio.src = song.src;
 
-  graphicCard.innerHTML = `<img src="${song.graphic}" alt="${song.title}" class="w-full h-full object-cover rounded-xl" />`;
+  currentSongIndex = index;
 
-
+  // Save last played song
+  localStorage.setItem("currentSongIndex", index);
 }
 
 // PLAY SONG FUNCTION 
@@ -191,8 +196,22 @@ audio.addEventListener("timeupdate", () => {
     duration.textContent = formatTime(audio.duration);
   });
 
+  // Save the playback position 
+  audio.addEventListener("timeupdate", () => {
+    localStorage.setItem("currentTime", audio.currentTime);
+  });
+
   duration.textContent =
     formatTime(audio.duration);
+});
+
+// Restore the playback position
+audio.addEventListener("loadedmetadata", () => {
+  const savedTime = localStorage.getItem("currentTime");
+
+  if (savedTime) {
+    audio.currentTime = Number(savedTime);
+  }
 });
 
 // SEEK THROUGH SONG
@@ -251,5 +270,15 @@ audio.addEventListener("ended", () => {
 });
 
 // INITIALIZE FIRST SONG AND SET VOLUME
+const savedSong = localStorage.getItem("currentSongIndex");
+
+if (savedSong !== null) {
+  currentSongIndex = Number(savedSong);
+}
+
 loadSong(currentSongIndex);
-audio.volume = volumeSlider.value;
+
+// loadSong(currentSongIndex);
+// audio.volume = volumeSlider.value;
+
+
